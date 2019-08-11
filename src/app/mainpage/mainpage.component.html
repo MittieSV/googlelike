@@ -1,0 +1,16 @@
+<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--no-label">
+  <input type="text" #searchBox class="mdc-text-field__input" aria-label="Label"
+  (input)="getSearchResult(searchBox.value)">
+  <div class="mdc-notched-outline">
+    <div class="mdc-notched-outline__leading"></div>
+    <div class="mdc-notched-outline__trailing"></div>
+  </div>
+</div>
+
+<ul class="search-result">
+  <li *ngFor="let result of searchResults$ | async" >
+    <a routerLink="/search/{{result.title}}">
+      {{result.title}}
+    </a>
+  </li>
+</ul>
