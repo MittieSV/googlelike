@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { SearchResult } from '../classes/SearchResult';
-import { SearchService } from '../search.service';
-import { MDCTextField } from '@material/textfield';
+import { SearchService } from '../shared/search.service';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import {FormControl} from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material';

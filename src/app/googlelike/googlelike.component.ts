@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchResult } from '../classes/SearchResult';
 import {MDCTextField} from '@material/textfield';
-import { SearchService } from '../search.service';
+import { SearchService } from '../shared/search.service';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { Location } from '@angular/common';
 

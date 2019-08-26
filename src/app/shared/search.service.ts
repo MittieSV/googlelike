@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SearchResult } from './classes/SearchResult';
-import { SEARCHRESULTS } from './mocks/mock-SearchResult';
+import { SearchResult } from "../classes/SearchResult";
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
