@@ -1,20 +1,16 @@
-<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--no-label">
-  <input type="text" #searchBox class="mdc-text-field__input" aria-label="Label"
-  (input)="getSearchResult(searchBox.value)">
-  <div class="mdc-notched-outline">
-    <div class="mdc-notched-outline__leading"></div>
-    <div class="mdc-notched-outline__trailing"></div>
-  </div>
+<div class="container">
+<div class="first" >
+    <img src="/assets/logo.png" width="200px">
 </div>
-
-<ul class="search-result">
-  <li *ngFor="let result of searchResults$ | async" >
-    <a routerLink="/search/{{result.title}}">
-      {{result.title}}
-    </a>
-  </li>
-</ul>
-
-<mat-form-field>
-  <input type="text" matInput [formControl]="myControl">
-</mat-form-field>
+<div class="second" >
+<mat-form-field appearance="outline">
+    <input type="text" #searchBox matInput  
+    [matAutocomplete]="auto" (input)="getSearchResult(searchBox.value)">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="myEvent($event)">
+      <mat-option *ngFor="let result of searchResults$ | async" [value]="result.title">
+        {{result.title}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+</div>

@@ -5,6 +5,8 @@ import { SearchService } from '../search.service';
 import { MDCTextField } from '@material/textfield';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import {FormControl} from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mainpage',
@@ -15,10 +17,11 @@ export class MainpageComponent implements OnInit {
   searchResults$: Observable<SearchResult[]>;
   private searchTerms = new Subject<string>();
   myControl = new FormControl();
-  constructor(private searchService: SearchService) { }
+  options: string[] = ['One', 'Two', 'Three'];
+  constructor(private searchService: SearchService, private route: Router) { }
 
   ngOnInit() {
-    let textField = new MDCTextField(document.querySelector('.mdc-text-field'));
+    
     this.searchResults$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
       debounceTime(300),
@@ -31,7 +34,12 @@ export class MainpageComponent implements OnInit {
     );
   }
   getSearchResult(term: string): void {
-    this.searchTerms.next(term);
+    this.searchTerms.next(term.toLowerCase());
+  }
+  myEvent(event: MatAutocompleteSelectedEvent): void {
+    console.log(event.option.value);
+    let term = event.option.value ? event.option.value : null;
+    this.route.navigate(['/search', { title: term}]);
   }
 
 }

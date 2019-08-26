@@ -1,6 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser-dynamic';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -12,7 +11,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatInputModule,MatFormFieldModule} from '@angular/material';
+import {MatInputModule, MatFormFieldModule} from '@angular/material';
 import { from } from 'rxjs';
 
 @NgModule({
