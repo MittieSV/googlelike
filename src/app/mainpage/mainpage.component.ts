@@ -4,6 +4,7 @@ import { SearchResult } from '../classes/SearchResult';
 import { SearchService } from '../search.service';
 import { MDCTextField } from '@material/textfield';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-mainpage',
@@ -13,6 +14,7 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 export class MainpageComponent implements OnInit {
   searchResults$: Observable<SearchResult[]>;
   private searchTerms = new Subject<string>();
+  myControl = new FormControl();
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {

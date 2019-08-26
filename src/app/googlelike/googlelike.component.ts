@@ -20,7 +20,7 @@ export class GooglelikeComponent implements OnInit {
   searchResults$: Observable<SearchResult[]>;
   private searchTerms = new BehaviorSubject<string>(this.route.snapshot.paramMap.get('title'));
   constructor(private searchService: SearchService, private location: Location,
-    private route: ActivatedRoute,) { }
+              private route: ActivatedRoute) { }
   ngOnInit() {
     let textField = new MDCTextField(document.querySelector('.mdc-text-field'));
     console.log(this.route.snapshot.paramMap.get('title'));
